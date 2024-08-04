@@ -49,11 +49,8 @@ html, body, p {
 	border-bottom:2px solid #d64f00;
 }
 
-#quickpairing {
-	padding-top:1rem;
-}
-
 .quick-button {
+	padding:1rem;
 	width: 33%;
 	border: none;
 	border-radius: 5px;
