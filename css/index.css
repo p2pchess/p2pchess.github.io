@@ -16,13 +16,17 @@ html, body, p {
 	padding: 0;
 }
 
+#app {
+	width: 33%;
+}
+
 .title {
 	font-family: "Noto Sans", Sans-Serif;
 	font-size: 30px;
 	padding: 0.5rem 1rem 1rem;
 }
 
-.bar-item {
+.tab-item {
 	font-family: "Roboto", Sans-Serif;
 	font-size:16px;
 	background: none;
@@ -34,8 +38,12 @@ html, body, p {
 	text-align: center;
 }
 
-.bar-item:hover {
+.tab-item:hover {
 	color: #bababa;
+}
+
+.tab-item-select {
+	color: #d64f00;
 }
 
 #chessground {
