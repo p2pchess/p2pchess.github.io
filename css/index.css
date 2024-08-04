@@ -7,9 +7,11 @@ html {
 body {
 	width: 100%;
 	display: table-cell;
+	background-color: #171513;
+	color: #acabab;
 }
 
-html, body {
+html, body, h1, {
 	margin: 0;
 	padding: 0;
 }

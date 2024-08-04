@@ -13,92 +13,27 @@
 		<link rel="stylesheet" href="css/chessground.brown.css" />
 		<link rel="stylesheet" href="css/chessground.cburnett.css" />
 		<link rel="stylesheet" href="css/index.css" />
+		<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
 		<script type="module">
 			import { Chessground } from './js/chessground.min.js';
-
 			Chessground(document.getElementById('board-1'), {});
-			Chessground(document.getElementById('board-2'), {
-				fen: 'r2q2k1/1p6/p2p4/2pN1rp1/N1Pb2Q1/8/PP1B4/R6K b - - 2 25',});
-			Chessground(document.getElementById('board-3'), {
-				drawable: {
-					autoShapes: [
-					{
-						orig: 'a2',
-						dest: 'a6',
-						brush: 'green',
-						label: { text: 'A' },
-						modifiers: {
-							hilite: true,
-						},
-					},
-					{
-						orig: 'b2',
-						dest: 'b6',
-						brush: 'blue',
-						label: { text: 'B' },
-						modifiers: {
-							lineWidth: 6,
-						},
-					},
-					{
-						orig: 'c2',
-						dest: 'c4',
-						brush: 'red',
-						label: { text: 'C' },
-					},
-					{
-						orig: 'd2',
-						dest: 'd3',
-						brush: 'green',
-						label: { text: 'D' },
-					},
-					{
-						orig: 'f1',
-						dest: 'h3',
-						brush: 'blue',
-						label: { text: 'F' },
-					},
-					{
-						orig: 'g1',
-						dest: 'f3',
-						brush: 'yellow',
-						label: { text: 'E' },
-					},
-					],
-				},
+			const chessWorker = new Worker('./js/scalachess.min.js');
+			chessWorker.onmessage = function(event){
+				console.log(event.data);
+			};
+			chessWorker.postMessage({
+			  topic: 'init',
+			  payload: {
+				variant: 'chess960'
+			  }
 			});
-			Chessground(document.getElementById('board-4'), {
-				orientation: 'black',
-				coordinatesOnSquares: true,
-				ranksPosition: 'left',
-			});
-			Chessground(document.getElementById('board-5'), {
-				orientation: 'white',
-				coordinatesOnSquares: true,
-			});
-    </script>
+		</script>
 	</head>
 	<body>
 		<h1>p2pchess.github.io</h1>
 		<div>
 			basic board, default config
 			<div class="chessground" id="board-1"></div>
-		</div>
-		<div>
-			board with a fen
-			<div class="chessground" id="board-2"></div>
-		</div>
-		<div>
-			board with fixed arrows + labels
-			<div class="chessground" id="board-3"></div>
-		</div>
-		<div>
-			board with coordinates on-square, ranks position left
-			<div class="chessground" id="board-4"></div>
-		</div>
-		<div>
-			board with coordinates on-square
-			<div class="chessground" id="board-5"></div>
 		</div>
 	</body>
 </html>
