@@ -22,10 +22,6 @@ html, body, p {
 	padding: 0.5rem 1rem;
 }
 
-.navbar {
-	text-align: center;
-}
-
 .bar-item {
 	font-family: "Roboto", Sans-Serif;
 	font-size:16px;
@@ -34,6 +30,12 @@ html, body, p {
 	border: none;
 	padding: 0;
 	cursor: pointer;
+	width: 33%;
+	text-align: center;
+}
+
+.bar-item:hover {
+	color: #bababa;
 }
 
 #chessground {
