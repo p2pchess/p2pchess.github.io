@@ -26,11 +26,36 @@
 			const chessWorker = new Worker('./js/scalachess.min.js');
 			chessWorker.onmessage = function(event){
 			};
-			
+			function openTab(tabName) {
+			  var i;
+			  var x = document.getElementsByClassName("tab");
+			  for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";  
+			  }
+			  document.getElementById(tabName).style.display = "block";  
+			}			
 		</script>
 	</head>
 	<body>
 		<p class="title">p2pchess.github.io</p>
-		<div id="app"></div>
+		<div id="app">
+			<div class="navbar">
+			  <button class="bar-item" onclick="openTab('quickpairing')">Quick pairing</button>
+			  <button class="bar-item" onclick="openTab('lobby')">Lobby</button>
+			  <button class="bar-item" onclick="openTab('settings')">Settings</button>
+			</div>
+			<div id="quickpairing" class="tab" style="display:none">
+			  <p>Quick pairing</p>
+			</div>
+
+			<div id="lobby" class="tab">
+			  <p>Lobby</p> 
+			</div>
+
+			<div id="settings" class="tab" style="display:none">
+			  <h2>Tokyo</h2>
+			  <p>Settings</p>
+			</div>
+		</div>
 	</body>
 </html>
