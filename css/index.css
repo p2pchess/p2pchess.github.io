@@ -1,15 +1,28 @@
 html {
-    width: 100%;
-    height: 100%;
-    display: table;
+	width: 100%;
+	height: 100%;
+	display: table;
 }
 
 body {
-    width: 100%;
-    display: table-cell;
+	width: 100%;
+	display: table-cell;
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
+}
+
+body > div {
+	margin: 10px;
+}
+
+.chessground {
+	width: 500px;
+	height: 500px;
+}
+
+cg-board {
+	background-color: #bfcfdd;
 }
