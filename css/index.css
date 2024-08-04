@@ -50,6 +50,7 @@ html, body, p {
 }
 
 .quick-button {
+	margin:0.5rem;
 	padding:1rem;
 	width: 33%;
 	border: none;
