@@ -17,6 +17,7 @@ html, body, p {
 }
 
 #app {
+	margin: auto;
 	width: 66%;
 }
 
