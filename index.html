@@ -30,7 +30,53 @@
 			  <button class="tab-item" onclick="openTab(event,'settings')">Settings</button>
 			</div>
 			<div id="quickpairing" class="tab" style="display:none">
-				<p>Quick pairing</p>
+				<button class="quick-button" onclick="createChallenge(1,0)">
+					<div class="clock">1+0</div>
+					<div class="perf">Bullet</div>
+				</button>
+				<button class="quick-button" onclick="createChallenge(2,1)">
+					<div class="clock">2+1</div>
+					<div class="perf">Bullet</div>
+				</button>
+				<button class="quick-button" onclick="createChallenge(3,0)">
+					<div class="clock">3+0</div>
+					<div class="perf">Blitz</div>
+				</button>
+				<button class="quick-button" onclick="createChallenge(3,2)">
+					<div class="clock">3+2</div>
+					<div class="perf">Blitz</div>
+				</button>
+				<button class="quick-button" onclick="createChallenge(5,0)">
+					<div class="clock">5+0</div>
+					<div class="perf">Blitz</div>
+				</button>
+				<button class="quick-button" onclick="createChallenge(5,3)">
+					<div class="clock">5+3</div>
+					<div class="perf">Blitz</div>
+				</button>
+				<button class="quick-button" onclick="createChallenge(10,0)">
+					<div class="clock">10+0</div>
+					<div class="perf">Rapid</div>
+				</button>
+				<button class="quick-button" onclick="createChallenge(10,5)">
+					<div class="clock">10+5</div>
+					<div class="perf">Rapid</div>
+				</button>
+				<button class="quick-button" onclick="createChallenge(15,10)">
+					<div class="clock">15+10</div>
+					<div class="perf">Rapid</div>
+				</button>
+				<button class="quick-button" onclick="createChallenge(30,0)">
+					<div class="clock">30+0</div>
+					<div class="perf">Classical</div>
+				</button>
+				<button class="quick-button" onclick="createChallenge(30,20)">
+					<div class="clock">30+20</div>
+					<div class="perf">Classical</div>
+				</button>
+				<button class="quick-button" onclick="createCustomChallenge()">
+					<div class="perf">Custom</div>
+				</button>
 			</div>
 
 			<div id="lobby" class="tab">

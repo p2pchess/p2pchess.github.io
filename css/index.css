@@ -49,6 +49,10 @@ html, body, p {
 	border-bottom:2px solid #d64f00;
 }
 
+.quick-button{
+	width: 33%;
+}
+
 #chessground {
 	width: 500px;
 	height: 500px;
