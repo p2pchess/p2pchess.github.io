@@ -57,6 +57,7 @@ html, body, p {
 	width: 30%;
 	min-height: 8rem;
 	margin: 0.5rem;
+	cursor: pointer;
 	text-align:center;
 	vertical-align:middle;
 	border: none;
