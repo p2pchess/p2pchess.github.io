@@ -40,10 +40,12 @@ html, body, p {
 
 .tab-item:hover {
 	color: #bababa;
+	border-bottom:2px solid #d64f00;
 }
 
 .tab-item-select {
 	color: #d64f00;
+	border-bottom:2px solid #d64f00;
 }
 
 #chessground {
