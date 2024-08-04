@@ -6,7 +6,7 @@ chessWorker.onmessage = function(event){
 	console.log(event.data);
 };
 
-export function openTab(tabName) {
+function openTab(tabName) {
 	var i;
 	var x = document.getElementsByClassName("tab");
 	for (i = 0; i < x.length; i++) {
@@ -14,3 +14,5 @@ export function openTab(tabName) {
 	}
 	document.getElementById(tabName).style.display = "block";  
 }			
+
+window.openTab = openTab;
