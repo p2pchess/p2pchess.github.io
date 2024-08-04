@@ -11,26 +11,18 @@ body {
 	color: #acabab;
 }
 
-html, body {
+html, body, p {
 	margin: 0;
 	padding: 0;
 }
 
-h1 {
-	font-family: "Noto Sans",Sans-Serif;
+.title {
+	font-family: "Noto Sans", Sans-Serif;
 	font-size: 30px;
 	padding: 0 1rem;
-}
-
-body > div {
-	margin: 10px;
 }
 
 .chessground {
 	width: 500px;
 	height: 500px;
-}
-
-cg-board {
-	background-color: #bfcfdd;
 }
