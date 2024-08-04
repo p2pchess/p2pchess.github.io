@@ -23,6 +23,7 @@ html, body, p {
 }
 
 .bar-item {
+	font-family: "Roboto", Sans-Serif;
 	background: none;
 	color: inherit;
 	border: none;
