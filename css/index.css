@@ -49,9 +49,14 @@ html, body, p {
 	border-bottom:2px solid #d64f00;
 }
 
+#quickpairing {
+	margin: auto;
+}
+
 .quick-button {
 	width: 30%;
-	min-height: 4rem;
+	min-height: 8rem;
+	margin: 0.5rem 0 0.5rem;
 	text-align:center;
 	vertical-align:center;
 	border: none;
