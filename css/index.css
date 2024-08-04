@@ -50,7 +50,7 @@ html, body, p {
 }
 
 #quickpairing {
-	margin: auto;
+	text-align: center;
 }
 
 .quick-button {
