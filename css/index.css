@@ -17,7 +17,7 @@ html, body, p {
 }
 
 #app {
-	width: 33%;
+	width: 66%;
 }
 
 .title {
@@ -34,7 +34,7 @@ html, body, p {
 	border: none;
 	padding: 0;
 	cursor: pointer;
-	width: 66%;
+	width: 33%;
 	text-align: center;
 }
 
