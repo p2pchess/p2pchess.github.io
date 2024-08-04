@@ -20,7 +20,9 @@
 		<link rel="stylesheet" href="css/index.css" />
 
 		<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
-		<script type="module" src="js/chessground.min.js"></script>
+		<script type="module">
+			import { Chessground } from './dist/chessground.js';
+		</script>
 	</head>
 	<body>
 		<p class="title">p2pchess.github.io</p>
@@ -44,7 +46,7 @@
 			</div>
 		</div>
 		<script>
-			Chessground(document.getElementById('board-1'), {});
+			const board = Chessground(document.getElementById('board-1'), {});
 			const chessWorker = new Worker('./js/scalachess.min.js');
 			chessWorker.onmessage = function(event){
 			};
