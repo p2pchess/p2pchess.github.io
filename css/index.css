@@ -22,7 +22,7 @@ html, body, p {
 	padding: 0.5rem 1rem;
 }
 
-.chessground {
+#chessground {
 	width: 500px;
 	height: 500px;
 }
