@@ -11,13 +11,15 @@ body {
 	color: #acabab;
 }
 
-html, body, h1, {
+html, body {
 	margin: 0;
 	padding: 0;
 }
 
 h1 {
 	font-family: "Noto Sans",Sans-Serif;
+	font-size: 30px;
+	padding: 0 1rem;
 }
 
 body > div {
