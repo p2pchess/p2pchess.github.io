@@ -19,7 +19,7 @@ html, body, p {
 .title {
 	font-family: "Noto Sans", Sans-Serif;
 	font-size: 30px;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 1rem 1rem;
 }
 
 .bar-item {
