@@ -49,7 +49,7 @@ html, body, p {
 	border-bottom:2px solid #d64f00;
 }
 
-#navbar, #quickpairing {
+.navbar, #quickpairing {
 	text-align: center;
 }
 
