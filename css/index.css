@@ -45,6 +45,7 @@ html, body, p {
 	border: none;
 	padding: 0;
 	cursor: pointer;
+	margin-left: 5px;
 }
 
 #app {
