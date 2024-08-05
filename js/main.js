@@ -32,7 +32,7 @@ function connectPeer()
 		}
 	});
 	peer.on('open', function(id) {
-		document.getElementById('account').innerText = 'p2pchess-user' + userId;
+		document.getElementById('account-name').innerText = 'p2pchess-user' + userId;
 	});
 }
 
