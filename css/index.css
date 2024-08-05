@@ -34,7 +34,7 @@ html, body, p {
 	display: inline-block;
 }
 
-.account-options {
+.account-options, .account-name {
 	display: inline-block;
 }
 
