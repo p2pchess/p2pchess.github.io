@@ -1,6 +1,6 @@
 import {Chessground} from './chessground.min.js';
 
-const board = Chessground(document.getElementById('chessground'), {});
+//const board = Chessground(document.getElementById('chessground'), {});
 const chessWorker = new Worker('./scalachess.min.js');
 chessWorker.onmessage = function(event){
 	console.log(event.data);
