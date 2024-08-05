@@ -49,6 +49,10 @@ html, body, p {
 	border-bottom:2px solid #d64f00;
 }
 
+#quickpairing {
+	height:80%;
+}
+
 .navbar, #quickpairing {
 	text-align: center;
 }
