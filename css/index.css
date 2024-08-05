@@ -34,6 +34,10 @@ html, body, p {
 	display: inline-block;
 }
 
+.account:hover {
+	color: #bababa;
+}
+
 .account-options, #account-name {
 	display: inline-block;
 	cursor: pointer;
