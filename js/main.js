@@ -22,7 +22,7 @@ function openTab(evt, tabName) {
 
 function connectPeer()
 {
-	peer = new Peer('p2p-user' + userId);
+	peer = new Peer('p2pchess-user' + userId);
 
 	peer.on('error', function(err) {
 		if (err.type == 'unavailable-id') {
@@ -32,7 +32,7 @@ function connectPeer()
 		}
 	});
 	peer.on('open', function(id) {
-		console.log('My peer ID is: ' + id);
+		document.getElementById('account').innerText = 'p2pchess-user' + userId;
 	});
 }
 
