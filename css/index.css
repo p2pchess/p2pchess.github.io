@@ -25,11 +25,13 @@ html, body, p {
 .title {
 	font-size: 2rem;
 	padding: 0.5rem 1rem 1rem;
+	display: inline-block;
 }
 
 .account {
 	float:right;
 	padding : 0.5rem 1rem 1rem;
+	display: inline-block;
 }
 
 #app {
