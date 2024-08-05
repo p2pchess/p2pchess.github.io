@@ -8,7 +8,7 @@ const 	tabs = document.getElementsByClassName("tab"),
 
 var	peer = null, userId = 1;
 
-function openTab(evt, tabName) {
+function openTab(buttonId, tabName) {
 	var i;
 	for (i = 0; i < tabs.length; i++) {
 		tabs[i].style.display = "none";  
@@ -17,7 +17,7 @@ function openTab(evt, tabName) {
 		tablinks[i].className = tablinks[i].className.replace("tab-item-select", "");
 	}
 	document.getElementById(tabName).style.display = "block";
-	evt.currentTarget.className += " tab-item-select";
+	document.getElementById(buttonId).className += " tab-item-select";
 }			
 
 function connectPeer()

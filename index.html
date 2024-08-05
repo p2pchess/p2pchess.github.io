@@ -23,15 +23,15 @@
 		<div id="top-bar">
 			<p class="title">p2pchess.github.io</p>
 			<div class="account">
-				<p id="account-name" onclick="openTab(event,'settings')">connection...</p>
-				<button class="account-options" onclick="openTab(event,'settings')">&#9998;</button>
+				<p id="account-name" onclick="openTab('settings-button','settings')">connection...</p>
+				<button class="account-options" onclick="openTab('settings-button','settings')">&#9998;</button>
 			</div>
 		</div>
 		<div id="app">
 			<div class="navbar">
-			  <button class="tab-item" onclick="openTab(event,'quickpairing')">Quick pairing</button>
-			  <button class="tab-item tab-item-select" onclick="openTab(event,'lobby')">Lobby</button>
-			  <button class="tab-item" onclick="openTab(event,'settings')">Settings</button>
+			  <button id="quickpairing-button" class="tab-item" onclick="openTab('quickpairing-button','quickpairing')">Quick pairing</button>
+			  <button id="lobby-button" class="tab-item tab-item-select" onclick="openTab('lobby-button','lobby')">Lobby</button>
+			  <button id="settings-button" class="tab-item" onclick="openTab('settings-button','settings')">Settings</button>
 			</div>
 			<div id="quickpairing" class="tab" style="display:none">
 				<button class="quick-button" onclick="createChallenge(1,0)">
