@@ -19,7 +19,7 @@ function openTab(evt, tabName) {
 
 (function() {
 	// test board
-	Chessground(document.getElementById('board-1'), {});
+	Chessground(document.getElementById('chessground'), {});
 	// run the chess worker
 	const chessWorker = new Worker('./scalachess.min.js');
 	chessWorker.onmessage = function(event){
