@@ -30,7 +30,6 @@ html, body, p {
 
 .account {
 	float:right;
-	font-size:1.3rem;
 	padding : 1rem 1rem 1rem;
 	display: inline-block;
 }
@@ -44,7 +43,12 @@ html, body, p {
 	cursor: pointer;
 }
 
+#account-name {
+	font-size:1.1rem;
+}
+
 .account-options {
+	font-size:1.3rem;
 	background: none;
 	color: #949494;
 	border: none;
