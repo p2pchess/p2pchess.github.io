@@ -20,6 +20,7 @@ html, body, p {
 #app {
 	margin: auto;
 	width: 50%;
+	height: 100%;
 }
 
 .title {
