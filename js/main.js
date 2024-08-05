@@ -11,7 +11,7 @@ function openTab(evt, tabName) {
 		tabs[i].style.display = "none";  
 	}
 	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].className = tablinks[i].className.replace("tab-item-select", "");
+		tablinks[i].className.replace("tab-item-select", "");
 	}
 	document.getElementById(tabName).style.display = "block";
 	evt.currentTarget.className += " tab-item-select";
