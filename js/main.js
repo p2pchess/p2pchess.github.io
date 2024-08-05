@@ -3,8 +3,10 @@ import {Chessground} from './chessground.min.js';
 import {Peer} from 'https://esm.sh/peerjs@1.5.4?bundle-deps';
 
 // globals :)
-const	tabs		= document.getElementsByClassName("tab"),
-		tablinks	= document.getElementsByClassName("tab-item");
+const 	tabs = document.getElementsByClassName("tab"),
+		tablinks = document.getElementsByClassName("tab-item");
+
+var	peer = null, userId = 1;
 
 function openTab(evt, tabName) {
 	var i;
@@ -18,6 +20,22 @@ function openTab(evt, tabName) {
 	evt.currentTarget.className += " tab-item-select";
 }			
 
+function connectPeer(userId)
+{
+	peer = new Peer('p2p-user' + userId);
+
+	peer.on('error', function(err) {
+		if (err.type == 'unavailable-id') {
+			console.log('User id unavailable, trying next');
+			userId++;
+			connectPeer(userId);
+		}
+	});
+	peer.on('open', function(id) {
+		console.log('My peer ID is: ' + id);
+	});
+}
+
 // Entry point
 (function() {
 	// run the chess worker
@@ -27,18 +45,8 @@ function openTab(evt, tabName) {
 	};
 
 	// connect to peer network
-	var userId = 1;
-	var peer = new Peer('p2p-user' + userId);
-	peer.on('open', function(id) {
-		console.log('My peer ID is: ' + id);
-	});
-	peer.on('error', function(err) {
-		if (err.type == 'unavailable-id') {
-			console.log('User id unavailable, trying next');
-			userId++;
-			peer = new Peer('p2p-user' + userId);
-		}
-	});
+	connectPeer();
+
 	// some functions need to be accessed via html page
 	window.openTab = openTab;
 })();
