@@ -36,6 +36,7 @@ html, body, p {
 
 .account-options, #account-name {
 	display: inline-block;
+	cursor: pointer;
 }
 
 .account-options {
@@ -44,7 +45,6 @@ html, body, p {
 	color: #949494;
 	border: none;
 	padding: 0;
-	cursor: pointer;
 	margin-left: 5px;
 }
 
