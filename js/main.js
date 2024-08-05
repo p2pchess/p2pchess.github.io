@@ -20,7 +20,7 @@ function openTab(evt, tabName) {
 	evt.currentTarget.className += " tab-item-select";
 }			
 
-function connectPeer(userId)
+function connectPeer()
 {
 	peer = new Peer('p2p-user' + userId);
 
