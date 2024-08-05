@@ -1,3 +1,6 @@
+// import the chess board object
+import {Chessground} from './chessground.min.js';
+
 // globals :)
 const	tabs		= document.getElementsByClassName("tab"),
 		tablinks	= document.getElementsByClassName("tab-links");
@@ -15,9 +18,8 @@ function openTab(evt, tabName) {
 }			
 
 (function() {
-	// import the chess board object
-	import {Chessground} from './chessground.min.js';
-
+	// test board
+	Chessground(document.getElementById('board-1'), {});
 	// run the chess worker
 	const chessWorker = new Worker('./scalachess.min.js');
 	chessWorker.onmessage = function(event){
