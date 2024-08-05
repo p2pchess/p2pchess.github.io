@@ -78,8 +78,3 @@ html, body, p {
 .quick-button:hover {
 	background-color: rgba(214, 79, 0, 0.66);
 }
-
-#chessground {
-	width: 500px;
-	height: 500px;
-}
