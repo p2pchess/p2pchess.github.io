@@ -94,8 +94,6 @@ function connectPeer()
 function findPreviousPeer()
 {
 	previousPeer = peer.connect('p2pchess-user' + previousId, {metadata:{type:'connect'}});
-	previousPeer.on('open', function() {
-	});
 	previousPeer.on('data', function(data) {
 		console.log(data)
 		if (nextPeer != null) {
