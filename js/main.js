@@ -50,9 +50,8 @@ function connectPeer()
 		peer.on('connection', function(dataConnection) {
 			nextPeer = dataConnection;
 			nextPeer.on('close', function() {
-				console.log('next peer disconnected');
 				nextPeer.close();
-				console.log(nextPeer);
+				nextPeer = null;
 			});
 		});
 		// If not the number 1 user,try to connect to the previous peer with the closest id number
@@ -68,12 +67,10 @@ function findPreviousPeer()
 {
 	previousPeer = peer.connect('p2pchess-user' + previousId);
 	previousPeer.on('open', function() {
-		//console.log('connected to last peer with id ' + previousId);
 	});
 	previousPeer.on('close', function() {
-		console.log('previous peer disconnected');
 		previousPeer.close();
-		console.log(previousPeer);
+		previousPeer = null;
 	});
 }
 
@@ -82,7 +79,6 @@ function findPreviousPeer()
 	// run the chess worker
 	const chessWorker = new Worker('./scalachess.min.js');
 	chessWorker.onmessage = function(event){
-		//console.log(event.data);
 	};
 
 	// connect to peer network
