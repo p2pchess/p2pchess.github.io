@@ -115,11 +115,13 @@ html, body, p, input, select {
 }
 
 #settings {
-	margin-top: 8px;
+	margin-top: 16px;
 }
 
 .settings-row {
+	margin-top: 8px;
 	text-align: center;
+	
 }
 
 .settings-label {
