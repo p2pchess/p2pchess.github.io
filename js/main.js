@@ -63,7 +63,7 @@ function connectPeer()
 		}
 	});
 	peer.on('open', function(id) {
-		accountName.innerText = userNameField.value = userName = id;
+		accountName.innerText = usernameField.value = userName = id;
 		userNameField.addEventListener('change', function(){
 			accountName.innerText = userName = this.value;
 		});
