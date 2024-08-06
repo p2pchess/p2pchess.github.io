@@ -6,7 +6,7 @@ import {Peer} from 'https://esm.sh/peerjs@1.5.4?bundle-deps';
 const 	tabs = document.getElementsByClassName("tab"),
 		tablinks = document.getElementsByClassName("tab-item");
 
-var	peer = null, previousPeerInterval = null, previousPeer = null, nextPeer = null, previousId, userId = 1;
+var	peer = null, previousPeerInterval = null, previousPeer = null, nextPeer = null, previousId, userId = 1, userName = null;
 
 // UI Functions
 
@@ -15,7 +15,7 @@ function openTab(buttonId, tabName)
 {
 	var i;
 	for (i = 0; i < tabs.length; i++) {
-		tabs[i].style.display = "none";  
+		tabs[i].style.display = "none";
 	}
 	for (i = 0; i < tablinks.length; i++) {
 		tablinks[i].className = tablinks[i].className.replace("tab-item-select", "");
@@ -62,11 +62,15 @@ function connectPeer()
 	});
 	peer.on('open', function(id) {
 		document.getElementById('account-name').innerText = 'p2pchess-user' + userId;
+		userName = 'p2pchess-user' + userId;
 		// Listening for the connection of the next user
 		peer.on('connection', function(dataConnection) {
 			nextPeer = dataConnection;
 			nextPeer.on('data', function(data){
 				console.log(data)
+				if (previousPeer != null) {
+					previousPeer.send(data);
+				}
 			});
 			nextPeer.on('close', function() {
 				nextPeer.close();
@@ -87,8 +91,11 @@ function findPreviousPeer()
 	previousPeer = peer.connect('p2pchess-user' + previousId);
 	previousPeer.on('open', function() {
 	});
-	previousPeer.on('data', function(data){
+	previousPeer.on('data', function(data) {
 		console.log(data)
+		if (nextPeer != null) {
+			nextPeer.send(data);
+		}
 	});
 	previousPeer.on('close', function() {
 		previousPeer.close();
