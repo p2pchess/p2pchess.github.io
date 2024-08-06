@@ -89,8 +89,7 @@ html, body, p {
 
 .quick-button {
 	width: 30%;
-	min-height: 150px;
-	padding:0;
+	padding: 2vh 0;
 	margin: 8px 4px 4px 4px;
 	cursor: pointer;
 	text-align:center;
