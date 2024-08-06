@@ -28,10 +28,10 @@ function openTab(buttonId, tabName)
 function createChallenge(time, increment)
 {
 	if (previousPeer != null) {
-		previousPeer.send({time: time, increment: increment});
+		previousPeer.send({username: userName, time: time, increment: increment});
 	}
 	if (nextPeer != null) {
-		nextPeer.send({time: time, increment: increment});
+		nextPeer.send({username: userName, time: time, increment: increment});
 	}
 }
 
@@ -65,6 +65,7 @@ function connectPeer()
 		userName = 'p2pchess-user' + userId;
 		// Listening for the connection of the next user
 		peer.on('connection', function(dataConnection) {
+			console.log(dataConnection.metadata);
 			nextPeer = dataConnection;
 			nextPeer.on('data', function(data){
 				console.log(data)
@@ -88,7 +89,7 @@ function connectPeer()
 // Finds the previous peer
 function findPreviousPeer()
 {
-	previousPeer = peer.connect('p2pchess-user' + previousId);
+	previousPeer = peer.connect('p2pchess-user' + previousId, {metadata:{type:'connect'}});
 	previousPeer.on('open', function() {
 	});
 	previousPeer.on('data', function(data) {
