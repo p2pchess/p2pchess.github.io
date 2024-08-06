@@ -28,10 +28,10 @@ function openTab(buttonId, tabName)
 function createChallenge(time, increment)
 {
 	if (previousPeer != null) {
-		previousPeer.send({time: time, increment: increment});
+		previousPeer.conn.send({time: time, increment: increment});
 	}
 	if (nextPeer != null) {
-		nextPeer.send({time: time, increment: increment});
+		nextPeer.conn.send({time: time, increment: increment});
 	}
 }
 
