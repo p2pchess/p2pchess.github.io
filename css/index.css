@@ -113,15 +113,11 @@ html, body, p {
 	background-color: rgba(214, 79, 0, 0.66);
 }
 
-.settings-row {
-	width: 60%;
-	margin: auto;
-}
-
 .settings-label {
-	width: 30%;
+	display:inline-block;
+	width: 40%;
 }
 
 .settings-input {
-	width: 70%;
+	width: 60%;
 }
