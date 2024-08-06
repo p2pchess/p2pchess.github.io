@@ -58,9 +58,10 @@ function findPreviousPeer()
 		previousPeer = peer.connect('p2pchess-user' + i);
 		previousPeer
 	}*/
-	console.log(previousPeer);
 	previousPeer = peer.connect('lacacaddldld');
-	console.log(previousPeer);
+	prevousPeer.on('error', function(err) {
+		console.log(err.type);
+	});
 }
 
 // Entry point
