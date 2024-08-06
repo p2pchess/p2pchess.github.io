@@ -59,7 +59,7 @@ function findPreviousPeer()
 		previousPeer
 	}*/
 	previousPeer = peer.connect('lacacaddldld');
-	prevousPeer.on('error', function(err) {
+	previousPeer.on('error', function(err) {
 		console.log(err.type);
 	});
 }
