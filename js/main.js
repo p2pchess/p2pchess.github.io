@@ -56,7 +56,7 @@ function connectPeer()
 			}
 			else {
 				previousId = userId - 1;
-				window.setTimeOut(findPreviousPeer, 20000);
+				setTimeout(findPreviousPeer, 20000);
 			}
 		}
 	});
