@@ -27,13 +27,11 @@ function openTab(buttonId, tabName)
 // Creates a quick pairing challenge
 function createChallenge(time, increment)
 {
-	if (previousPeer != null)
-	{
-		previousPeer.send({time = time, increment = increment});
+	if (previousPeer != null) {
+		previousPeer.send({time: time, increment: increment});
 	}
-	if (nextPeer != null)
-	{
-		nextPeer.send({time = time, increment = increment});
+	if (nextPeer != null) {
+		nextPeer.send({time: time, increment: increment});
 	}
 }
 
