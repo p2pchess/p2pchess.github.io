@@ -117,6 +117,7 @@ html, body, p, input, select {
 .settings-label {
 	display:inline-block;
 	width: 40%;
+	text-align: right;
 }
 
 .settings-input {
