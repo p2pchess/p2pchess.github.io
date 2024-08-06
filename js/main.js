@@ -28,10 +28,10 @@ function openTab(buttonId, tabName)
 function createChallenge(time, increment)
 {
 	if (previousPeer != null) {
-		previousPeer.conn.send({time: time, increment: increment});
+		previousPeer.send({time: time, increment: increment});
 	}
 	if (nextPeer != null) {
-		nextPeer.conn.send({time: time, increment: increment});
+		nextPeer.send({time: time, increment: increment});
 	}
 }
 
@@ -122,4 +122,5 @@ function findPreviousPeer()
 	});
 	//Exposing ui functions in the window object
 	window.openTab = openTab;
+	window.createChallenge = createChallenge;
 })();
