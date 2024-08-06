@@ -51,6 +51,7 @@ function connectPeer()
 			nextPeer = dataConnection;
 			nextPeer.on('close', function() {
 				console.log('next peer disconnected');
+				nextPeer.close();
 				console.log(nextPeer);
 			});
 		});
@@ -71,6 +72,7 @@ function findPreviousPeer()
 	});
 	previousPeer.on('close', function() {
 		console.log('previous peer disconnected');
+		previousPeer.close();
 		console.log(previousPeer);
 	});
 }
