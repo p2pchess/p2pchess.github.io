@@ -51,6 +51,7 @@ function connectPeer()
 			nextPeer = dataConnection;
 			nextPeer.on('close', function() {
 				console.log('next peer disconnected');
+				console.log(nextPeer);
 			});
 		});
 		// If not the number 1 user,try to connect to the previous peer with the closest id number
@@ -70,6 +71,7 @@ function findPreviousPeer()
 	});
 	previousPeer.on('close', function() {
 		console.log('previous peer disconnected');
+		console.log(previousPeer);
 	});
 }
 
