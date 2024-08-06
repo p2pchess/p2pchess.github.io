@@ -112,3 +112,16 @@ html, body, p {
 .quick-button:hover {
 	background-color: rgba(214, 79, 0, 0.66);
 }
+
+.settings-row {
+	width: 100%;
+	text-align: center;
+}
+
+.settings-label {
+	width: 20%;
+}
+
+.settings-input {
+	width: 40%;
+}

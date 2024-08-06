@@ -87,18 +87,25 @@
 			</div>
 
 			<div id="settings" class="tab" style="display:none">
-				<label for="username">Username: </label><input type="text" id="username" name="username" />
-				<label for="accept-challenges">Accept challenges: </label>
-				<select name="accept-challenges" id="accept-challenges">
-					<option value="yes" selected>Yes</option>
-					<option value="no">No</option>
-				</select>
-				<label for="autopromotion">Promote to queen automatically: </label>
-				<select name="autopromotion" id="autopromotion">
-					<option value="never" selected>Never</option>
-					<option value="premove">When premoving</option>
-					<option value="always">Always</option>
-				</select>
+				<div class="settings-row">
+					<label class="settings-label" for="username">Username: </label>
+					<input class="settings-input" type="text" id="username" name="username" />
+				</div>
+				<div class="settings-row">
+					<label class="settings-label" for="accept-challenges">Accept challenges: </label>
+					<select class="settings-input" name="accept-challenges" id="accept-challenges">
+						<option value="yes" selected>Yes</option>
+						<option value="no">No</option>
+					</select>
+				</div>
+				<div class="settings-row">
+					<label class="settings-label" for="autopromotion">Promote to queen automatically: </label>
+					<select class="settings-input" name="autopromotion" id="autopromotion">
+						<option value="never" selected>Never</option>
+						<option value="premove">When premoving</option>
+						<option value="always">Always</option>
+					</select>
+				</div>
 			</div>
 		</div>
 		<script type="module" src="js/main.js"></script>
