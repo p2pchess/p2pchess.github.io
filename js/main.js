@@ -49,6 +49,9 @@ function connectPeer()
 		// Listening for the connection of the next user
 		peer.on('connection', function(dataConnection) {
 			nextPeer = dataConnection;
+			nextPeer.on('close', function() {
+				console.log('next peer disconnected');
+			});
 		});
 		// If not the number 1 user,try to connect to the previous peer with the closest id number
 		if (userId > 1) {
@@ -65,6 +68,9 @@ function findPreviousPeer()
 	previousPeer.on('open', function() {
 		//console.log('connected to last peer with id ' + previousId);
 	});
+	previousPeer.on('close', function() {
+		console.log('previous peer disconnected');
+	});
 }
 
 // Entry point
@@ -80,8 +86,13 @@ function findPreviousPeer()
 	
 	// detect when users closes the page and properly disconnect the peer
 	window.addEventListener('beforeunload', function (e) {
-		e.preventDefault();
-		e.returnValue = '';
+		if (previousPeer != null) {
+			previousPeer.close();
+		}
+		if (nextPeer != null) {
+			nextPeer.close();
+		}
+		peer.destroy();
 	});
 	//Exposing ui functions in the window object
 	window.openTab = openTab;
