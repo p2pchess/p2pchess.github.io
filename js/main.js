@@ -4,7 +4,9 @@ import {Peer} from 'https://esm.sh/peerjs@1.5.4?bundle-deps';
 
 // globals :)
 const 	tabs = document.getElementsByClassName("tab"),
-		tablinks = document.getElementsByClassName("tab-item");
+		tablinks = document.getElementsByClassName("tab-item"),
+		usernameField = document.getElementById("username"),
+		accountName = document.getElementById("account-name");
 
 var	peer = null, previousPeerInterval = null, previousPeer = null, nextPeer = null, previousId, userId = 1, userName = null;
 
@@ -61,7 +63,10 @@ function connectPeer()
 		}
 	});
 	peer.on('open', function(id) {
-		document.getElementById('account-name').innerText = userName = id;
+		accountName.innerText = userNameField.value = userName = id;
+		userNameField.addEventListener('change', function(){
+			accountName.innerText = userName = this.value;
+		});
 		// Listening for the connection of the next user
 		peer.on('connection', function(dataConnection) {
 			if (dataConnection.metadata );
