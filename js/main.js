@@ -64,7 +64,7 @@ function connectPeer()
 	});
 	peer.on('open', function(id) {
 		accountName.innerText = usernameField.value = userName = id;
-		userNameField.addEventListener('change', function(){
+		usernameField.addEventListener('change', function(){
 			accountName.innerText = userName = this.value;
 		});
 		// Listening for the connection of the next user
