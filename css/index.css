@@ -12,7 +12,7 @@ body {
 	font-family: "Roboto", Sans-Serif;
 }
 
-html, body, p {
+html, body, p, input, select {
 	margin: 0;
 	padding: 0;
 }
