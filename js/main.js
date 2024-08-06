@@ -28,10 +28,10 @@ function openTab(buttonId, tabName)
 function createChallenge(time, increment)
 {
 	if (previousPeer != null) {
-		previousPeer.send({username: userName, time: time, increment: increment});
+		previousPeer.send({type: 'quickpairing', peerId: peer.id, userName: userName, side:'random', time: time, increment: increment});
 	}
 	if (nextPeer != null) {
-		nextPeer.send({username: userName, time: time, increment: increment});
+		nextPeer.send({type: 'quickpairing', peerId: peer.id, username: userName, side:'random', time: time, increment: increment});
 	}
 }
 
@@ -61,11 +61,10 @@ function connectPeer()
 		}
 	});
 	peer.on('open', function(id) {
-		document.getElementById('account-name').innerText = 'p2pchess-user' + userId;
-		userName = 'p2pchess-user' + userId;
+		document.getElementById('account-name').innerText = userName = id;
 		// Listening for the connection of the next user
 		peer.on('connection', function(dataConnection) {
-			console.log(dataConnection.metadata);
+			if (dataConnection.metadata );
 			nextPeer = dataConnection;
 			nextPeer.on('data', function(data){
 				console.log(data)
