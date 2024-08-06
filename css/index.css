@@ -114,14 +114,14 @@ html, body, p {
 }
 
 .settings-row {
-	width: 100%;
-	text-align: center;
+	width: 60%;
+	margin: auto;
 }
 
 .settings-label {
-	width: 20%;
+	width: 30%;
 }
 
 .settings-input {
-	width: 40%;
+	width: 70%;
 }
