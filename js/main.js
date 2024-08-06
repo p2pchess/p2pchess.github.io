@@ -6,7 +6,7 @@ import {Peer} from 'https://esm.sh/peerjs@1.5.4?bundle-deps';
 const 	tabs = document.getElementsByClassName("tab"),
 		tablinks = document.getElementsByClassName("tab-item");
 
-var	peer = null, previousPeer = null, nextPeer = null, userId = 1;
+var	peer = null, previousPeer = null, nextPeer = null, previousId, userId = 1;
 
 // UI Functions
 
@@ -34,7 +34,12 @@ function connectPeer()
 			connectPeer(userId);
 		}
 		else if (err.type == 'peer-unavailable') {
-			console.log('coucou');
+			previousPeer.close();
+			if (previousId > 1)
+			{
+				previousId = previousId - 1;
+				findPreviousPeer();
+			}
 		}
 	});
 	peer.on('open', function(id) {
@@ -46,7 +51,10 @@ function connectPeer()
 		});
 		// If not the number 1 user,try to connect to the previous peer with the closest id number
 		if (userId > 1)
+		{
+			previousId = userId - 1;
 			findPreviousPeer();
+		}
 	});
 }
 
@@ -58,9 +66,9 @@ function findPreviousPeer()
 		previousPeer = peer.connect('p2pchess-user' + i);
 		previousPeer
 	}*/
-	previousPeer = peer.connect('lacacaddldld');
-	previousPeer.on('error', function(err) {
-		console.log(err.type);
+	previousPeer = peer.connect('p2pchess-user' + previousId);
+	previousPeer.on('open', function() {
+		console.log('connected to last peer with id ' + previousId);
 	});
 }
 
