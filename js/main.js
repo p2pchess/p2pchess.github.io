@@ -6,11 +6,11 @@ import {Peer} from 'https://esm.sh/peerjs@1.5.4?bundle-deps';
 const 	tabs = document.getElementsByClassName("tab"),
 		tablinks = document.getElementsByClassName("tab-item");
 
-var	peer = null, previousPeer = null, nextPeer = null, previousId, userId = 1;
+var	peer = null, previousPeerInterval = null, previousPeer = null, nextPeer = null, previousId, userId = 1;
 
 // UI Functions
 
-// Switch between app tabs
+// Switching between app tabs
 function openTab(buttonId, tabName)
 {
 	var i;
@@ -24,9 +24,22 @@ function openTab(buttonId, tabName)
 	document.getElementById(buttonId).className += " tab-item-select";
 }			
 
+// Creates a quick pairing challenge
+function createChallenge(time, increment)
+{
+	if (previousPeer != null)
+	{
+		previousPeer.send({time = time, increment = increment});
+	}
+	if (nextPeer != null)
+	{
+		nextPeer.send({time = time, increment = increment});
+	}
+}
+
 // Network functions
 
-// Connect user to p2pchess
+// Connects user to p2pchess
 function connectPeer()
 {
 	peer = new Peer('p2pchess-user' + userId);
@@ -38,9 +51,14 @@ function connectPeer()
 		}
 		else if (err.type == 'peer-unavailable') {
 			previousPeer.close();
+			previousPeer = null;
 			if (previousId > 1) {
 				previousId = previousId - 1;
 				findPreviousPeer();
+			}
+			else {
+				previousId = userId - 1;
+				setTimeOut(findPreviousPeer, 20000);
 			}
 		}
 	});
@@ -49,6 +67,9 @@ function connectPeer()
 		// Listening for the connection of the next user
 		peer.on('connection', function(dataConnection) {
 			nextPeer = dataConnection;
+			nextPeer.on('data', function(data){
+				console.log(data)
+			});
 			nextPeer.on('close', function() {
 				nextPeer.close();
 				nextPeer = null;
@@ -62,29 +83,36 @@ function connectPeer()
 	});
 }
 
-// Find the previous peer
+// Finds the previous peer
 function findPreviousPeer()
 {
 	previousPeer = peer.connect('p2pchess-user' + previousId);
 	previousPeer.on('open', function() {
 	});
+	previousPeer.on('data', function(data){
+		console.log(data)
+	});
 	previousPeer.on('close', function() {
 		previousPeer.close();
 		previousPeer = null;
+		if (userId > 1) {
+			previousId = userId - 1;
+			findPreviousPeer();
+		}
 	});
 }
 
 // Entry point
 (function() {
-	// run the chess worker
+	// runs the chess worker
 	const chessWorker = new Worker('./scalachess.min.js');
 	chessWorker.onmessage = function(event){
 	};
 
-	// connect to peer network
+	// connects to peer network
 	connectPeer();
 	
-	// detect when users closes the page and properly disconnect the peer
+	// detects when user closes the page and properly disconnects the peer
 	window.addEventListener('beforeunload', function (e) {
 		if (previousPeer != null) {
 			previousPeer.close();
