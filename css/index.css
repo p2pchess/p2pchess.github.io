@@ -114,6 +114,10 @@ html, body, p, input, select {
 	background-color: rgba(214, 79, 0, 0.66);
 }
 
+#settings {
+	margin-top: 8px;
+}
+
 .settings-row {
 	text-align: center;
 }
@@ -121,7 +125,7 @@ html, body, p, input, select {
 .settings-label {
 	display:inline-block;
 	width: 40%;
-	text-align: right;
+	text-align: center;
 }
 
 .settings-input {
