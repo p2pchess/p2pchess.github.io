@@ -44,10 +44,9 @@ function connectPeer()
 	});
 	peer.on('open', function(id) {
 		document.getElementById('account-name').innerText = 'p2pchess-user' + userId;
-		// Listening for the next connection
+		// Listening for the connection of the next user
 		peer.on('connection', function(dataConnection) {
-			console.log('connection du pti nouveau');
-			nextPeer = dataConnexion;
+			nextPeer = dataConnection;
 		});
 		// If not the number 1 user,try to connect to the previous peer with the closest id number
 		if (userId > 1)
@@ -60,12 +59,6 @@ function connectPeer()
 
 function findPreviousPeer()
 {
-	/*var i, peerFound = false;
-	for (i = userId - 1; i > 0 && peerFound == false; i--)
-	{
-		previousPeer = peer.connect('p2pchess-user' + i);
-		previousPeer
-	}*/
 	previousPeer = peer.connect('p2pchess-user' + previousId);
 	previousPeer.on('open', function() {
 		console.log('connected to last peer with id ' + previousId);
@@ -87,6 +80,3 @@ function findPreviousPeer()
 	//adding ui functions in the window object
 	window.openTab = openTab;
 })();
-
-	// test board
-	//Chessground(document.getElementById('chessground'), {});
