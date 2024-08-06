@@ -79,7 +79,7 @@ function findPreviousPeer()
 	connectPeer();
 	
 	// detect when users closes the page and properly disconnect the peer
-	window.addEventListener('beforeunload', fonction (e) {
+	window.addEventListener('beforeunload', function (e) {
 		e.preventDefault();
 		e.returnValue = '';
 	});
