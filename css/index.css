@@ -120,5 +120,6 @@ html, body, p, input, select {
 }
 
 .settings-input {
+	display:inline-block;
 	width: 60%;
 }
